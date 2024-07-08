@@ -1,0 +1,51 @@
+<div class="sticky-top">
+<div  class="navbar navbar-expand-lg navbar-light bg-dark justify-content-end " >
+  
+    <ul class="nav justify-content-end" >
+
+
+
+
+      {% if request.user.is_authenticated %}   
+    
+   
+      <li class="nav-item"  >
+          <a class="nav-link active"  aria-current="page"  href="{% url 'home' %}"><p class="text-light bg-dark" >Home</p></a>
+      </li>
+      <li class="nav-item"  >
+        <a class="nav-link active"  aria-current="page"  href="{% url 'form' %}"><p class="text-light bg-dark" >upload news</p></a>
+    </li>
+      {% comment %} <li class="nav-item"  >
+        <a class="nav-link active"  aria-current="page"  href="{% url 'newspaperlist' %}"><p class="text-light bg-dark" >N.P LIST</p></a>
+    </li> {% endcomment %}
+     {% comment %} <li class="nav-item"  >
+     <a class="nav-link active"  aria-current="page"  href="{% url 'newspaperdetails' %}"><p class="text-light bg-dark" >N.P DETAILS</p></a>
+  </li> {% endcomment %}
+      <li  >
+
+        <h5  style="color:red;"><b> Hi ! {{ user.username  }}</b>&nbsp &nbsp</h5>
+
+      </li>  
+      <li class="nav-item" >
+        <a class="nav-link active"  aria-current="page" href=" {% url 'logout'  %} "><p class="text-light bg-dark"> log out</p></a>
+     </li>
+      
+      {% else %}
+      <li class="nav-item"  >
+          <a class="nav-link"  href="{% url 'signup' %}"><p class="text-light bg-dark"> Sign Up</p></a>
+      </li>
+      <li class="nav-item" >
+            <a class="nav-link"  href="{% url 'login' %}"><p class="text-light bg-dark"> log in</p></a>
+      </li>
+      {% endif %}
+        
+    </ul>
+    
+</div>
+</div>
+
+ 
+    
+    
+    
+    

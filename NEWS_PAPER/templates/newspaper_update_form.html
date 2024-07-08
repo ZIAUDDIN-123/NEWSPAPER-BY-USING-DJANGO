@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="w3-container" style="margin-top:1%; margin-left: 35%; margin-right: 35%; ">
+<h1 align="center">update news</h1>
+<form action=" " method="post" enctype="multipart/form-data">
+    <label for="title">Title name:</label>
+    <input type="text" id=" " value="Titlename" name="name"><br><br>
+    {% comment %} <label for="author_name">Author name:</label>
+    <input type="text" id=" " name="author_name"><br> {% endcomment %}
+    <label for="content">Content :</label><br>
+    <textarea id=" " name="content" value="content" placeholder="Write something.." style="height:200px"></textarea><br><br>
+    <input type="file" id=" " value="image" name="image"><br><br>
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">post your news</button>
+    {% comment %} <input type="submit" value="save"> {% endcomment %}
+</form>
+</div>
+
+{% endblock content %}

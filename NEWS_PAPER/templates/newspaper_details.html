@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="article-entry">
+    <h2>{{ newspaper.title }}</h2>
+    <p>by {{ newspaper.author_name }} | {{ newspaper.published_date }}</p>
+    
+</div>
+
+
+
+{% endblock content %}

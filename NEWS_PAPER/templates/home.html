@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.success %} class="{{ message.success }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+{% endif %}    
+
+
+
+
+
+   
+
+<div class="row">
+
+{% for paper in papers %}
+<div class="container">
+
+<div class="col-lg-4 col-sm-6 mb-4" style="margin-top: 2%">
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{ paper.image.url }}" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><a href={% url 'newspaperdetails' paper.pk   %} >{{ paper.title }}</a></h5>
+          <p class="card-text"> written by:{{ paper.author_name }} <br> {{  paper.content }}</p>
+          <p class="card-text"><small class="text-muted">{{  paper.published_date }}</small></p>
+          <a href="{% url 'newspaperupdate' paper.pk  %}"">update</a> 
+          <a href="{% url 'newspaperdelete' paper.pk %}">Delete</a> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+{% endfor %}
+</div>
+
+
+
+
+ 
+
+
+
+
+{% endblock content %}
+

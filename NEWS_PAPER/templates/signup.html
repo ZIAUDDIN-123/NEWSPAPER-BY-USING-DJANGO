@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% comment %} <div id="padding"> 
+<div class="w3-container" style="margin-top:1%; margin-left: 35%; margin-right: 35%; ">
+   
+<h2 align="center">Sign up</h2>    
+<form method="post">
+{% csrf_token %}
+{{ form.as_p }}
+<button type="submit" >Sign up</button>
+</form>
+</div>
+</div>  {% endcomment %}
+
+
+<div class="w3-container" style="margin-top:1%; margin-left: 35%; margin-right: 35%; ">
+    {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.error %} class="{{ message.error }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+    {% endif %}
+    <h1 align="center"> sign up</h1>
+      <form  class="modal-content animate" action=" " method="post">
+          <div class="mb-3" class="container"  class="p-3 mb-2 bg-secondary text-white">
+            <label for="exampleInputText" class="form-label">User name</label>
+            <input type="text" class="form-control" id="exampleInputText" name="username" aria-describedby="textHelp">
+            
+          </div>
+          <div class="mb-3" class="container"  class="p-3 mb-2 bg-secondary text-white">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword2" class="form-label">confirm Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password2">
+          </div>
+          
+          {% csrf_token %}
+          <button type="submit" class="btn btn-primary">Sign up</button>
+      </form>    
+      
+    </div>
+{% endblock content %}
